@@ -61,7 +61,7 @@ namespace GracevaleTest.Logic.Player
 
         public void TakeDamage(float attack, out float damage)
         {
-            damage = attack * _model.Stats[StatsId.ARMOR_ID] / 100f;
+            damage = attack * (1 - _model.Stats[StatsId.ARMOR_ID] / 100f);
             damage = Mathf.Clamp(damage, 0, _model.Stats[StatsId.LIFE_ID]);
 
             var healthLeft = _model.Stats[StatsId.LIFE_ID] -= damage;
